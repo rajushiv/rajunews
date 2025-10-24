@@ -1,4 +1,6 @@
-class sliderMode{
+class sliderModel{
   String? image;
   String? name;
 }
+
+

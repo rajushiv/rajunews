@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rajunews/models/category_model.dart';
 import 'package:rajunews/models/slider_model.dart';
 import 'package:rajunews/service/data.dart';
+import 'package:rajunews/service/slider.data.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -13,7 +14,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<CategoryModel> categories = [];
-  List<sliderModel>
+  List<sliderModel>sliders=[];
 
   @override
   void initState() {
@@ -57,13 +58,18 @@ class _HomeState extends State<Home> {
                 },
               ),
             ),
-            CarouselSlider.builder(itemCount:, itemBuilder: itemBuilder, options: options);
+              CarouselSlider.builder(itemCount: sliders.length, itemBuilder:(context, index,) , options: options)
           ],
         ),
       ),
     );
   }
+  Widget builderImage(String image, int index, String name)=>Container(
+    child:  Image.asset(image, fit: BoxFit.cover,width: MediaQuery.of(context).size.width),
+  );
 }
+
+
 
 class CategoryTitle extends StatelessWidget {
   final image, categoryName;
@@ -108,4 +114,6 @@ class CategoryTitle extends StatelessWidget {
       ),
     );
   }
+
 }
+
